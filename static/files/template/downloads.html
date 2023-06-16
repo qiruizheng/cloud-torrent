@@ -1,14 +1,14 @@
 <div class="section-header">
   <h3 class="ui header">
-    Downloads
+    下载
   </h3>
   <h5 class="right" ng-show="state.Stats.System.set">
-    {{ (state.Stats.System.diskTotal-state.Stats.System.diskUsed) | bytes }} free
+    {{ (state.Stats.System.diskTotal-state.Stats.System.diskUsed) | bytes }} 空闲
   </h5>
 </div>
 
 <div ng-if="numDownloads() == 0" class="ui message nodownloads">
-  <p>Download files above</p>
+  <p>下载上面的文件</p>
 </div>
 
 <div ng-if="numDownloads() > 0" class="ui segment">
