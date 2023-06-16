@@ -6,7 +6,7 @@
 
 **Docker**
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/jpillora/cloud-torrent.svg)][dockerhub] [![Image Size](https://images.microbadger.com/badges/image/jpillora/cloud-torrent.svg)][dockerhub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/jpillora/cloud-torrent.svg)][dockerhub] [dockerhub]
 
 [dockerhub]: https://hub.docker.com/r/jpillora/cloud-torrent/
 
