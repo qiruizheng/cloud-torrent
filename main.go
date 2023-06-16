@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/qiruizheng/cloud-torrent/server"
-	"github.com/qiruizheng/opts"
+	"github.com/jpillora/opts"
 )
 
 var VERSION = "0.0.0-src" //set with ldflags
