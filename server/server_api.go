@@ -11,7 +11,7 @@ import (
 	"github.com/anacrolix/torrent"
 	"github.com/anacrolix/torrent/metainfo"
 
-	"github.com/jpillora/cloud-torrent/engine"
+	"github.com/qiruizheng/cloud-torrent/engine"
 )
 
 func (s *Server) api(r *http.Request) error {
@@ -51,7 +51,7 @@ func (s *Server) api(r *http.Request) error {
 		}
 		spec := torrent.TorrentSpecFromMetaInfo(info)
 		if err := s.engine.NewTorrent(spec); err != nil {
-			return fmt.Errorf("Torrent error: %s", err)
+			return fmt.Errorf("Torrent错误: %s", err)
 		}
 		return nil
 	}
@@ -72,12 +72,12 @@ func (s *Server) api(r *http.Request) error {
 	case "magnet":
 		uri := string(data)
 		if err := s.engine.NewMagnet(uri); err != nil {
-			return fmt.Errorf("Magnet error: %s", err)
+			return fmt.Errorf("Magnet错误: %s", err)
 		}
 	case "torrent":
 		cmd := strings.SplitN(string(data), ":", 2)
 		if len(cmd) != 2 {
-			return fmt.Errorf("Invalid request")
+			return fmt.Errorf("无效回复")
 		}
 		state := cmd[0]
 		infohash := cmd[1]
@@ -94,7 +94,7 @@ func (s *Server) api(r *http.Request) error {
 				return err
 			}
 		} else {
-			return fmt.Errorf("Invalid state: %s", state)
+			return fmt.Errorf("无效状态: %s", state)
 		}
 	case "file":
 		cmd := strings.SplitN(string(data), ":", 3)
