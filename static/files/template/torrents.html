@@ -8,13 +8,13 @@
 </div>
 
 <div ng-if="isEmpty(state.Torrents)" class="ui message nodownloads">
-  <p>Add torrents above</p>
+  <p>在上面添加Torrents</p>
 </div>
 
 <div ng-repeat="(hash, t) in state.Torrents" ng-class="{open: t.open}" class="ui torrent segment">
 
   <div ng-if="!t.Loaded" class="ui active inverted dimmer">
-    <div class="ui text loader">Loading</div>
+    <div class="ui text loader">加载中</div>
   </div>
 
   <div class="ui stackable grid">
@@ -39,19 +39,19 @@
         <div>
           <div class="ui mini buttons">
             <a class="ui button" ng-class="{blue: t.$showFiles}" ng-click="t.$showFiles = !t.$showFiles">
-              <i class="file icon"></i> Files
+              <i class="file icon"></i> 文件
             </a>
             <a ng-disabled="t.Started" class="ui button" ng-class="{green: !t.Started}" ng-click="submitTorrent('start', t)">
-              <i class="cloud download icon"></i> Start
+              <i class="cloud download icon"></i> 开始
             </a>
             <a ng-if="t.Started" class="ui red button" ng-click="submitTorrent('stop', t)">
-              <i class="stop icon"></i> Stop
+              <i class="stop icon"></i> 停止
             </a>
             <a ng-if="!t.Started" class="ui red button" style="z-index: 99999;" ng-click="submitTorrent('delete', t)">
               <span ng-if="!t.Loaded">
-                <i class="ban icon"></i> Cancel</span>
+                <i class="ban icon"></i> 取消</span>
               <span ng-if="t.Loaded">
-                <i class="trash icon"></i> Remove</span>
+                <i class="trash icon"></i> 移除</span>
             </a>
           </div>
         </div>
@@ -66,7 +66,7 @@
     </div>
     <!--
     <div ng-if="!t.open" class="row stopped"><div class="column">
-      This torrent is inactive. Press the green power button to reactivate or the red trash can to remove it.
+      此torrent处于非活动状态。点击重新激活，或将其移除.
     </div></div>
      -->
     <div class="row" ng-show="t.$showFiles && t.Loaded">
@@ -74,14 +74,14 @@
         <table class="ui unstackable compact striped downloads tcld table">
           <thead>
             <tr>
-              <th class="name">File</th>
-              <th class="size">Size</th>
+              <th class="name">文件</th>
+              <th class="size">大小</th>
               <!-- <th>&nbsp;</th> -->
             </tr>
           </thead>
           <tbody>
             <tr ng-if="!t.Files || t.Files.length == 0">
-              <td colspan="2" class="muted">No files</td>
+              <td colspan="2" class="muted">无文件</td>
             </tr>
             <tr class="download file" ng-repeat="f in t.Files | orderBy:'Path'">
               <td class="name">
@@ -113,10 +113,10 @@
           <tfoot ng-if="numKeys(t.Files) > 1">
             <tr>
               <th class="name">
-                {{ numKeys(t.Files) }} Files
+                {{ numKeys(t.Files) }} 文件
               </th>
               <th>
-                {{ t.Size | bytes }} Total
+                {{ t.Size | bytes }} 总计
               </th>
             </tr>
           </tfoot>
