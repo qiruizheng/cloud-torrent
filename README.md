@@ -4,7 +4,6 @@
 
 
 
-**Docker**
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/jpillora/cloud-torrent.svg)][dockerhub] [dockerhub]
 
