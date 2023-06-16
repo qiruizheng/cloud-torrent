@@ -1,5 +1,5 @@
 FROM alpine:edge
-LABEL maintainer="dev@jpillora.com"
+LABEL maintainer="9446918@qq.com"
 # prepare go env
 ENV GOPATH /go
 ENV NAME cloud-torrent
@@ -19,6 +19,7 @@ RUN set -ex \
 	&& apk add ca-certificates \
 	&& apk add --no-cache --virtual .build-deps \
 	bash \
+	patch \
 	gcc \
 	musl-dev \
 	openssl \
@@ -34,6 +35,7 @@ RUN set -ex \
 	&& rm golang.tar.gz \
 	&& cd /usr/local/go/src \
 	&& patch -p2 -i /no-pic.patch \
+	&& go env -w GO111MODULE=auto \
 	&& ./make.bash \
 	&& mkdir -p $PACKAGE_DIR \
 	&& git clone https://$PACKAGE.git $PACKAGE_DIR \
