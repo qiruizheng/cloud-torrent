@@ -1,5 +1,5 @@
 FROM alpine:edge
-LABEL maintainer="9446918@qq.com"
+LABEL maintainer="944691846@qq.com"
 # prepare go env
 ENV GOPATH /go
 ENV NAME cloud-torrent
